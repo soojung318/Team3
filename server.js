@@ -2,6 +2,9 @@ const mongoclient = require("mongodb").MongoClient;
 const ObjId = require("mongodb").ObjectId;
 const url =
   "mongodb+srv://admin:1234@cluster0.qefoj4b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+
+
 let mydb;
 
 mongoclient
@@ -35,6 +38,8 @@ mongoclient
 
 const express = require("express");
 const app = express();
+
+
 
 //body-parser 라이브러리 추가
 const bodyParser = require("body-parser");
@@ -162,5 +167,17 @@ app.post("/edit", function (req, res) {
     .catch((err) => {
       console.log(err);
     });
+});
+
+//목록 검색기능
+app.get('/search', function (req, res) {
+  console.log(req.query);
+
+  mydb.collection("realestate")
+  .find({ title:req.query.value}).toArray()
+  .then((result) => {
+    console.log(result);
+    res.render("list.ejs", {data:result});
+  })
 });
 

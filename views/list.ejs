@@ -12,7 +12,11 @@
 <body>
 
   <%- include('menu.html') %>
-    <div style="font-size: 2em; margin-top:0.7em; margin-bottom: 0.5em; margin-left:2em;">매매 정보</div>
+    <div style="font-size: 2em; margin-top:0.7em; margin-bottom: 0.5em; margin-left:2em;">매매목록</div>
+    <div class="input-group mb-3 w-75" style="margin-left:10em;">
+      <input type="search" class="form-control" id="searchInput" placeholder="주택이름을 검색하세요">
+      <button class="btn btn-outline-primary" type="button" id="searchBtn">검색</button>
+    </div>
     <table class="table table-hover table-striped text-center container mt-4" style="border: 1px solid;">
       <thead>
         <tr>
@@ -48,6 +52,12 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>
+     
+     $('#searchBtn').click(function(){
+      let searchInput = $('#searchInput').val();
+      location.href = '\\search?value=' + searchInput;
+     })
+
       $('.delete').click(function (e) {
         let sid = e.target.dataset.id;
 
