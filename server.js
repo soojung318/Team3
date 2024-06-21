@@ -177,7 +177,7 @@ app.get('/search', function (req, res) {
   .find({ title:req.query.value}).toArray()
   .then((result) => {
     console.log(result);
-    res.render("list.ejs", {data:result});
+    res.render("list.ejs", {data:result}); //search.ejs
   })
 });
 
