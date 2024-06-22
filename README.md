@@ -52,4 +52,33 @@ node.js 서버로 부동산 매매 페이지 구현하기
 {"_id":{"$oid":"6675339f7388ff6ebbca103d"},"title":"서초아파트","address":"서초구","price":"40억","num":"02-355-6636","size":"456.45","date":"2024-06-22"}
 {"_id":{"$oid":"6675391dbee80fb171973527"},"title":"서초아파트","address":"서초구","price":"30억","num":"02-255-9888","size":"159.58","date":"2024-06-22"}
 ```
+## 👻에러 상황
+### Err 1 : IP 주소 접속 권한
+```
+MongoServerSelectionError: 8085020601000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:861:SSL alert number 80
+```
+이 에러는 기존에 사용했던 IP와 현재 접속한 IP가 다르면 생기는 에러입니다.
+그래서 MongoDB Atlas에 접속하여 `SECURITY` > `Network Access` 에 들어가서 `IP Access List`에서 `+ADD IP ADDRESS`를 현재 접속 중인 IP로 등록하여 해결했습니다.
 
+### Err 2 : 테이블을 찾지 못함
+```
+Error: Unkown database 'pair'
+```
+처음 이 에러를 마주했을 때는 굉장히 광범위한 에러가 뜬 것 같아 이걸 해결할 수 있을까..? 라고 생각했는데 해결했습니다.
+문제 원인은 MongoDB를 사용하는데 `server.js`에서 `mysql`을 요청했기 때문이었습니다.
+```
+// MySQL + nodejs 접속 코드
+var mysql = require("mysql2");
+var conn = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "0000",
+  database: "pair",
+});
+```
+위 코드를 주석처리하니 정상작동 되었습니다.
+## 소감
+|이름|내용|
+|:---:|-----|
+|신수정| 수업을 들으며 예제코드를 따라 하다가 직접 팀원과 함께 처음부터 시도해보니 이미 알고 있다고 생각했던 부분인데 모르는 부분들을 마주하고, 생각치 못했던 에러 상황들을 접하면서 더 많은 것들을 배울 수 있었던 정말 뜻 깊은 프로젝트였습니다. 저와 함께 프로젝트를 진행한 개발자 손빈님께도 감사의 인사를 전해드립니다.|
+|손빈|ㅡ|
