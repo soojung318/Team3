@@ -6,7 +6,7 @@ node.js 서버로 부동산 매매 페이지 및 자산관리 페이지 구현�
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/soojung318"><img src="https://avatars.githubusercontent.com/u/106755183?v=4" width="100px" alt="Chris"/><br /><sub><b>신수정 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>손빈 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/ssur4"><img src="https://avatars.githubusercontent.com/u/99883918?v=4" width="100px;" alt="ssur4"/><br /><sub><b>손빈 </b></sub></a><br /></td>
      <tr/>
   </tbody>
 </table>
