@@ -39,6 +39,9 @@ node.js 서버로 부동산 매매 페이지 및 자산관리 페이지 구현�
 -->
 
 ## 🛢️구조
+<img src="https://github.com/soojung318/Team3/assets/106755183/75eff2aa-ba20-4a63-b6a3-89f459d77808" width="600" alt="로직"/>
+<img src="https://github.com/soojung318/Team3/assets/106755183/9eab08d0-801b-4e3f-8927-782c06720b7a" width="600" alt="로직2"/>
+
 ### MongoDB
 `pair` 데이터베이스에 `realestate` 테이블 생성
 - `id` : MongoDB 고유 ObjectId
